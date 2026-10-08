@@ -1,0 +1,274 @@
+<!-- ═══════════════════════════════════════════════════════════════════════
+     DEMO DEL DÍA 1 - Estructura semántica de un documento HTML5
+
+     Esta es la página completa que se analiza hoy. No usa CSS todavía: se ve
+     como texto plano a propósito, para que quede claro que la ESTRUCTURA y la
+     APARIENCIA son cosas distintas. El CSS llega el Día 3.
+
+     Los comentarios de este archivo son para aprender. En un proyecto real no
+     se comenta así: el HTML bien escrito ya se explica solo.
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<!DOCTYPE html>
+<!-- Le dice al navegador "esto es HTML5". Va siempre en la primera línea.
+     Sin esto el navegador entra en modo compatibilidad y se comporta raro. -->
+
+<html lang="es">
+<!-- lang="es" no es decorativo. Con él, el lector de pantalla pronuncia en
+     español y el navegador ofrece traducir la página correctamente. -->
+
+  <!-- ── HEAD ────────────────────────────────────────────────────────────
+       Todo lo que va aquí es información SOBRE el documento. Nada de esto
+       se ve en la página: son instrucciones para el navegador, el buscador
+       y las redes sociales.                                              -->
+  <head>
+
+    <!-- charset SIEMPRE primero, antes que cualquier texto. Le dice al
+         navegador cómo interpretar los bytes del archivo. Sin esta línea,
+         "Panadería" se ve como "Panader?a". Es el error visual número uno
+         de quien recién empieza. -->
+    <meta charset="UTF-8">
+
+    <!-- viewport: sin esta línea, un celular finge ser una pantalla de
+         escritorio de 980px y encoge todo hasta hacerlo ilegible.
+         width=device-width  -> usa el ancho real del dispositivo
+         initial-scale=1.0   -> sin zoom al abrir -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- description: el texto gris que Google muestra debajo del título en
+         los resultados de búsqueda. Si no está, el buscador inventa uno
+         recortando la página, y casi siempre queda mal. -->
+    <meta name="description" content="Pasteleria en la plaza principal de colquencha">
+
+    <!-- title: el texto de la pestaña del navegador y el titular azul en los
+         resultados de búsqueda. Es distinto del <h1>, que va en la página. -->
+    <title>Pasteleria15 de agosto</title>
+
+  </head>
+
+  <!-- ── BODY ────────────────────────────────────────────────────────────
+       Todo lo que el usuario ve. De aquí en adelante, cada elemento se
+       elige por lo que SIGNIFICA, no por cómo se ve.                    -->
+  <body>
+
+    <!-- ── HEADER ──────────────────────────────────────────────────────
+         Encabezado de la página: identidad y navegación principal.
+         Se usa <header> y no <div>, porque un <div> no significa nada.
+         La diferencia no la ve el usuario: la ven el buscador, el lector
+         de pantalla, y quien lea este código dentro de tres semanas.   -->
+    <header>
+
+      <!-- UN SOLO <h1> por documento. Es el título de la página entera.
+           No es "el texto más grande": es el nivel más alto de la
+           jerarquía. El tamaño lo decide el CSS, no la etiqueta. -->
+      <h1>Pasteleria 15 de agosto <h1>
+
+      <p>Pasteleria COLQUENCHA</p>
+
+      <!-- ── NAV ──────────────────────────────────────────────────────
+           Bloque de navegación principal. Los lectores de pantalla
+           ofrecen "saltar a la navegación", y eso solo funciona si el
+           bloque está marcado con <nav>.
+           Los enlaces son una LISTA porque son varios elementos del
+           mismo tipo, sin orden de importancia: eso es un <ul>.
+           href="#productos" salta a la sección con id="productos" de
+           esta misma página. -->
+      <nav>
+        <ul>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#horarios">Horarios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <!-- ── MAIN ────────────────────────────────────────────────────────
+         El contenido PROPIO de esta página: lo que no se repite en las
+         demás. Solo puede haber uno por documento.
+         El menú, el pie y la barra lateral quedan fuera, porque se
+         repiten en todas las páginas del sitio.                       -->
+    <main>
+
+      <!-- ── SECTION ────────────────────────────────────────────────
+           Agrupa contenido con un tema propio y su propio encabezado.
+           Regla práctica: si el bloque no tiene un título que lo
+           describa, probablemente no es una <section>.
+           El id="productos" es el destino del enlace del <nav>.     -->
+      <section id="productos">
+        <h2>Nuestros productos</h2>
+
+        <!-- ── ARTICLE ──────────────────────────────────────────────
+             Contenido con sentido completo POR SÍ SOLO: se entendería
+             igual si se sacara de esta página y se pegara en otra.
+             Un producto, una noticia, un comentario.
+             Diferencia con <section>: la section agrupa por tema, el
+             article se sostiene solo.
+             Los encabezados bajan de nivel ordenadamente: h1, h2, h3.
+             No se saltan niveles.                                   -->
+        <article>
+          <h3>Pastel de chocolate<h3>
+          <p>Pastel por las tardes </p>
+        </article>
+
+        <article>
+          <h3>pastel de avena<h3>
+          <p>Por unidad</p>
+        </article>
+
+        <article>
+          <h3>pasteles</h3>
+          <p>Solo los fines de semana, hasta que se acaban.</p>
+        </article>
+
+      </section>
+
+      <section id="horarios">
+        <h2>Horarios</h2>
+        <p>Lunes a viernes de 08:00 a 13:00.</p>z
+        
+      </section>
+
+          <table>
+                <caption>Precios por pasteles</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">PASTELES </th>
+                        <th scope="col">Precios</th>
+                        <th scope="col">disponible</th>
+                    </tr>                       
+                </thead>
+                <tbody>
+                    <tr><td>pastel de chocolate</td>  <td>Bs 45</td> <td>lunes a viernes</td>
+                    <tr><td>pastel de avena </td>  <td>Bs 55</td> <td>lunes a viernes</td>
+                    <tr><td>pastel de vainilla </td>  <td>Bs 45</td> <td>lunes a viernes</td>         
+                </body>
+            </table>
+            
+            <figure>
+                <img src="pastel1.jpg"            
+                    alt="pastel vainilla "              
+                    width=200" height="250"
+                    img src="pastel2.jpg"            
+                    alt="pastel de chocolate "              
+                    width=200" height="250">
+                <figcaption>pastel de vainilla </figcaption>
+            </figure>
+        </section>   
+
+
+           <figure>
+                <img src="pastel2.jpg"            
+                    alt="pastel vainilla "              
+                    width=200" height="250"
+                    img src="pastel2.jpg"            
+                    alt="pastel de chocolate "              
+                    width=200" height="250">
+                <figcaption>pastel de chocolate </figcaption>
+            </figure>
+        </section>
+        
+        <section id="pedido">
+        <h2>Hacer un pedido</h2>
+
+        <form action="/pedido" method="post">
+
+          <fieldset>
+            <legend>Tus datos</legend>
+
+            <p>
+              <label for="nombre">Nombre completo</label>
+
+              <input type="text" id="nombre" name="nombre"
+                     autocomplete="name" required>
+            </p>
+
+            <p>
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email"
+                     autocomplete="email" required>
+            </p>
+
+            <p>
+              <label for="telefono">Teléfono</label>
+
+              <input type="tel" id="telefono" name="telefono"
+                     autocomplete="tel" pattern="[0-9]{7,8}"
+                     title="7 u 8 dígitos, sin espacios">
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Tu pedido</legend>
+
+            <p>
+              <label for="producto">Producto</label>
+
+              <select id="producto" name="producto" required>
+                <option value="">Elige uno</option>
+                <option value="dia">pastel de chocolate</option>
+                <option value="integral">pastel de avena</option>
+                <option value="molde">pastel de vainilla</option>
+              </select>
+            </p>
+
+            <p>
+              <label for="cantidad">Cantidad</label>
+              <input type="number" id="cantidad" name="cantidad"
+                     min="1" max="100" value="1" required>
+            </p>
+
+            <p>
+              <label for="fecha">Fecha de entrega</label>
+              <input type="date" id="fecha" name="fecha" required>
+            </p>
+
+            <p>
+              <label for="notas">Alguna indicación</label>
+              <textarea id="notas" name="notas" rows="3"></textarea>
+            </p>
+
+            <p>
+
+              <input type="checkbox" id="terminos" name="terminos" required>
+              <label for="terminos">Acepto que el pedido se confirma por teléfono</label>
+            </p>
+          </fieldset>
+
+          <button type="submit">Enviar pedido</button>
+        </form>
+      </section>
+
+    </main>
+
+    <!-- ── ASIDE ───────────────────────────────────────────────────────
+         Contenido RELACIONADO pero secundario: si se borrara, la página
+         seguiría teniendo sentido. Datos curiosos, publicidad, enlaces
+         relacionados. Va fuera de <main> porque no es el contenido
+         principal.                                                    -->
+    <aside>
+      <h2>nuestros productos</h2>
+      <p>Sinco sabores cada una con decoracion unica.</p>
+    </aside>
+
+    <!-- ── FOOTER ──────────────────────────────────────────────────────
+         Cierre del documento: contacto, autoría, derechos.
+         <address> marca datos de contacto REALES de esta página o de su
+         autor. No sirve para cualquier dirección postal que aparezca en
+         un texto.
+         <br> corta la línea dentro de un mismo bloque. Es de los pocos
+         elementos que no se cierran, porque no envuelven nada.
+         &copy; es una entidad HTML: escribe el símbolo © sin depender
+         de que el teclado lo tenga.                                   -->
+    <footer id="contacto">
+      <h2>Contacto</h2>
+      <address>
+        Av. Samuel 002<br>
+        Teléfono: 7XX XXX XX
+      </address>
+      <p><small>&copy; 2026 pasteleria 15agosto</small></p>
+    </footer>
+
+  </body>
+</html>
+
