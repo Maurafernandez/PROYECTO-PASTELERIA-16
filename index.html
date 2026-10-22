@@ -36,11 +36,11 @@
     <!-- description: el texto gris que Google muestra debajo del título en
          los resultados de búsqueda. Si no está, el buscador inventa uno
          recortando la página, y casi siempre queda mal. -->
-    <meta name="description" content="Pasteleria en la plaza principal de colquencha">
+    <meta name="description" content="Pastelería en la plaza principal de Colquencha">
 
     <!-- title: el texto de la pestaña del navegador y el titular azul en los
          resultados de búsqueda. Es distinto del <h1>, que va en la página. -->
-    <title>Pasteleria15 de agosto</title>
+    <title>Pastelería 16 de Agosto</title>
     <link rel="stylesheet" href="estilos.css">
 
   </head>
@@ -60,9 +60,10 @@
       <!-- UN SOLO <h1> por documento. Es el título de la página entera.
            No es "el texto más grande": es el nivel más alto de la
            jerarquía. El tamaño lo decide el CSS, no la etiqueta. -->
-      <h1>Pasteleria 16 de agosto <h1>
+      <h1>Pastelería 16 de Agosto</h1>
 
-      <p>Pasteleria COLQUENCHA</p>
+      <p>Pastelería en Colquencha</p>
+      <p id="aviso-stock"></p>
 
       <!-- ── NAV ──────────────────────────────────────────────────────
            Bloque de navegación principal. Los lectores de pantalla
@@ -97,115 +98,55 @@
       <section id="productos">
         <h2>Nuestros productos</h2>
 
-        <!-- ── ARTICLE ──────────────────────────────────────────────
-             Contenido con sentido completo POR SÍ SOLO: se entendería
-             igual si se sacara de esta página y se pegara en otra.
-             Un producto, una noticia, un comentario.
-             Diferencia con <section>: la section agrupa por tema, el
-             article se sostiene solo.
-             Los encabezados bajan de nivel ordenadamente: h1, h2, h3.
-             No se saltan niveles.                                   -->
-        <article>
-          <h3>Pastel de chocolate<h3>
-          <p>Pastel por las tardes </p>
-           <figure>
-                <img src="pastel2.jpg"            
-                    alt="pastel vainilla "              
-                    width=200" height="250"
-                    img src="pastel2.jpg"            
-                    alt="pastel de chocolate "              
-                    width=200" height="250">
-                <figcaption>pastel de chocolate </figcaption>
-            
-      
-        </article>
+        <div class="controles">
+          <label for="buscador" class="visualmente-oculto">Buscar productos</label>
+          <input type="search" id="buscador" placeholder="Buscar por nombre...">
 
-        <article>
-          <h3>pastel de avena<h3>
-          <p>Por unidad</p>
+          <div id="filtros">
+            <button type="button" class="activo" data-categoria="todos">Todos</button>
+            <button type="button" data-categoria="pasteles">Pasteles</button>
+            <button type="button" data-categoria="salados">Salados</button>
+            <button type="button" data-categoria="dulces">Dulces</button>
+          </div>
+        </div>
 
-          <figure>
-                <img src="pastel1.jpg"            
-                    alt="pastel vainilla "              
-                    width=200" height="250"
-                    img src="pastel2.jpg"            
-                    alt="pastel de chocolate "              
-                    width=200" height="250">
-                <refigcaption>pastel de vainilla </figcaption>
-            </figure>
+        <p id="resultado"></p>
 
-        </article>
+        <!-- Las tarjetas ya no se escriben a mano: render.js las genera desde datos.js -->
+        <div id="lista-productos"></div>
 
-        <article>
-          <h3>pasteles</h3>
-          <p>Solo los fines de semana, hasta que se acaban.</p>
-
-
-        </article>
-
+        <p>Los pasteles salen solo los fines de semana, hasta que se acaban.</p>
       </section>
 
       <section id="horarios">
         <h2>Horarios</h2>
-        <p>Lunes a viernes de 08:00 a 13:00.</p>z
-        
+        <p>Lunes a viernes, de 08:00 a 13:00.</p>
+
+        <table>
+          <caption>Precios de los pasteles</caption>
+          <thead>
+            <tr>
+              <th scope="col">Pastel</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Disponible</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Pastel de vainilla</td>  <td>Bs 45</td> <td>Lunes a viernes</td></tr>
+            <tr><td>Pastel de chocolate</td> <td>Bs 55</td> <td>Lunes a viernes</td></tr>
+            <tr><td>Pastel de avena</td>     <td>Bs 45</td> <td>Lunes a viernes</td></tr>
+      
+            <tr><td>Masitas </td>  <td>Bs 35</td> <td>Lunes a viernes</td></tr>
+            <tr><td>Alfabores</td> <td>Bs 10</td> <td>Lunes a viernes</td></tr>
+            <tr><td>Bizcochos</td>     <td>Bs 45.50</td> <td>Lunes a viernes</td></tr>
+            <tr><td>Galletas</td>  <td>Bs 35</td> <td>Lunes a viernes</td></tr>
+            <tr><td>Queques</td> <td>Bs 1.00</td> <td>Lunes a viernes</td></tr>
+            
+            
+          </tbody>
+        </table>
       </section>
 
-          <table>
-                <caption>Precios por pasteles</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">PASTELES </th>
-                        <th scope="col">Precios</th>
-                        <th scope="col">disponible</th>
-                    </tr>                       
-                </thead>
-                <tbody>
-                    <tr><td>pastel de chocolate</td>  <td>Bs 45</td> <td>lunes a viernes</td>
-                    <tr><td>pastel de avena </td>  <td>Bs 55</td> <td>lunes a viernes</td>
-                    <tr><td>pastel de vainilla </td>  <td>Bs 45</td> <td>lunes a viernes</td>         
-                </body>
-            </table>
-            
-            <figure>
-                <img src="pastel1.jpg"            
-                    alt="pastel vainilla "              
-                    width=200" height="250"
-                    img src="pastel2.jpg"            
-                    alt="pastel de chocolate "              
-                    width=200" height="250">
-                <refigcaption>pastel de vainilla </figcaption>
-            </figure>
-        </section>   
-             <figure>
-                <img src="pastel2.jpg"            
-                    alt="pastel vainilla "              
-                    width=200" height="250"
-                    img src="pastel2.jpg"            
-                    alt="pastel de chocolate "              
-                    width=200" height="250">
-                <figcaption>pastel de chocolate </figcaption>
-            </figure>
-        
-            
-        
-        </section>
-        
-           </figure>
-        </section>   
-             <figure>
-                <img src="imagen3.jpg"            
-                    alt="pastel vainilla "              
-                    width=200" height="250"
-                    img src="pastel2.jpg"            
-                    alt="pastel de avena "              
-                    width=200" height="250">
-                <figcaption>pastel de avena</figcaption>
-            </figure>
-        </section>
-
-        
-        
         <section id="pedido">
         <h2>Hacer un pedido</h2>
 
@@ -244,10 +185,16 @@
 
               <select id="producto" name="producto" required>
                 <option value="">Elige uno</option>
-                <option value="dia">pastel de chocolate</option>
-                <option value="integral">pastel de avena</option>
-                <option value="molde">pastel de vainilla</option>
+                <option value="vainilla">Pastel de vainilla</option>
+                <option value="chocolate">Pastel de chocolate</option>
+                <option value="avena">Pastel de avena</option>
+                <option value="masitas">Masitas</option>
+                <option value="alfajores">Alfajores</option>
+                <option value="bizcocho">Bizcocho</option>
+                <option value="galletas">Galletas</option>
+                <option value="queques">Queques</option>
               </select>
+
             </p>
 
             <p>
@@ -274,6 +221,7 @@
           </fieldset>
 
           <button type="submit">Enviar pedido</button>
+          <p id="mensaje-pedido" class="mensaje-exito"></p>
         </form>
       </section>
 
@@ -287,8 +235,8 @@
          relacionados. Va fuera de <main> porque no es el contenido
          principal.                                                    -->
     <aside>
-      <h2>nuestros productos</h2>
-      <p>Sinco sabores cada una con decoracion unica.</p>
+      <h2>Nuestros sabores</h2>
+      <p>Cinco sabores, cada uno con una decoración única.</p>
     </aside>
 
     <!-- ── FOOTER ──────────────────────────────────────────────────────
@@ -306,8 +254,13 @@
         Av. Samuel 002<br>
         Teléfono: 7XX XXX XX
       </address>
-      <p><small>&copy; 2026 pasteleria 15agosto</small></p>
+      <p><small>&copy; 2026 Pastelería 16 de Agosto</small></p>
     </footer>
+    <script src="app.js"></script>
+    <script src="funciones.js"></script>
+    <script src="datos.js"></script>
+    <script src="render.js"></script>
+    <script src="eventos.js"></script>
 
   </body>
 </html>

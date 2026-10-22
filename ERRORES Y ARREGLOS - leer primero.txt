@@ -1,0 +1,69 @@
+ERRORES Y ARREGLOS DE TU PROYECTO: Pastelería 16 de Agosto (21 de octubre)
+=============================================================================
+
+PROYECTO1f_1 es tu PROYECTO1f con todo arreglado. Tu carpeta original no se tocó.
+Ábrela con live-server y revisa cada cambio antes de hacer tu commit. La guía "Depurar el render"
+explica cada uno de estos errores.
+
+1. POR QUÉ NO APARECÍAN LAS TARJETAS
+------------------------------------
+- Faltaba el contenedor: seguían tus pasteles escritos a mano y render.js no encontraba
+  <div id="lista-productos"> ("El contenedor existe: false").
+  -> Los <article> se cambiaron por el <div>. Ahora las 8 tarjetas salen de datos.js, y los 3
+     pasteles con su foto y su descripción.
+- app.js usaba "panesEnVitrina", "pastelEnVitrina" y "precioPan", que no existen: eran nombres de
+  la demo de la panadería. -> pastelDeChocolate y precioPastel, que son tuyos.
+
+2. EL HTML: ETIQUETAS SIN CERRAR
+--------------------------------
+- <h1>Pasteleria 16 de agosto <h1> y <h3>Pastel de chocolate<h3>: el segundo también abría, en
+  vez de cerrar. Se cierra con barra: </h1>, </h3>.
+- Cada <img> traía otro "img src=..." metido adentro, y width=200" (falta una comilla).
+- Una <figure> no se cerraba, y otra tenía <refigcaption>.
+- La tabla cerraba con </body> en vez de </tbody>, y sus filas no cerraban (</tr>).
+- La tabla y dos fotos quedaban fuera de las secciones, sobraba un </section>, y había una "z"
+  suelta después del horario.
+  -> La tabla va dentro de Horarios. Las fotos sueltas se quitaron: ahora están en las tarjetas.
+- Los value del pedido eran los de la demo (dia, integral, molde). -> chocolate, avena, vainilla.
+- El nombre: el título decía "Pasteleria15 de agosto" y el pie "pasteleria 15agosto", pero el
+  <h1> y tu README dicen 16 de Agosto. -> Pastelería 16 de Agosto en todos lados.
+- Tildes y mayúsculas: Pastelería, Colquencha, "Sinco" -> Cinco, decoración única.
+
+3. EL CSS: EL COLOR PRINCIPAL NO EXISTÍA
+----------------------------------------
+- --color-principal: s#e29a3c; tenía una "s" de más: el color no era válido, y todo lo que lo
+  usaba (títulos, encabezados de la tabla, botón) se quedaba sin color. Los encabezados de la
+  tabla eran texto blanco sobre nada: no se veían.
+- Al corregirlo apareció otro problema: ese naranja sobre tu fondo naranja no se lee (contraste
+  1,4; para texto hace falta 4,5 o más). -> Se usa el mismo naranja más oscuro, #7a3f08
+  (contraste 5,0). Si quieres otro color, que se lea sobre el fondo.
+
+4. LOS DATOS
+------------
+- El primer producto se llamaba "Pastel " (sin nombre). Por tu tabla, es el de vainilla.
+- "Pastel de cholate" -> chocolate, "Afabores" -> Alfajores, "Biscochos" -> Bizcochos.
+- Los pasteles tenían categoría "panes" (de la demo). -> "pasteles".
+- Quedaban datos de la demo ("Pan del día", "Pan de ayer", "Alfajor"). -> Pasteles.
+
+5. LO QUE TE TOCA A TI
+----------------------
+- LOS PRECIOS NO COINCIDEN entre las tarjetas (datos.js) y tu tabla:
+      vainilla   tarjeta Bs 40   tabla Bs 45
+      chocolate  tarjeta Bs 45   tabla Bs 55
+      avena      tarjeta Bs 40   tabla Bs 45
+  Y los Queques a Bs 1. Pregunta a tu cliente y corrige.
+- REVISA LAS FOTOS: tu HTML tenía dos tarjetas "pastel de avena" y las fotos cruzadas (una decía
+  vainilla en el pie). Quedaron así: vainilla = imagen3.jpg, chocolate = pastel2.jpg,
+  avena = pastel1.jpg. Si alguna no es, cambia la imagen en datos.js.
+- En el contacto, el teléfono sigue como "7XX XXX XX".
+- Tu último commit es del 12 de octubre y hay 8 archivos sin commit.
+
+CÓMO SEGUIR
+-----------
+Esta carpeta tiene tu .git: es tu mismo repositorio, con toda tu historia. No crees otro.
+Trabaja desde aquí, y la carpeta vieja queda solo de respaldo. En Git Bash, dentro de esta carpeta:
+
+    git add .
+    git commit -m "fix: las tarjetas se generan desde los datos, con foto"
+
+git push lo sube a tu mismo GitHub.
