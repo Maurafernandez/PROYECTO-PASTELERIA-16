@@ -1,0 +1,7 @@
+# Binarios pesados
+*.exe
+cli_windows_x64.exe
+
+# Editor
+.vscode/
+.new
