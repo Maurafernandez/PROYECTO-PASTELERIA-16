@@ -25,17 +25,17 @@ console.log(pastelDeAyer);
 
 // ── 3. ARREGLO DE OBJETOS ───────────────────────────────────────────────
 const productos = [
-  { nombre: "Pastel de vainilla",  precio: 40, categoria: "pasteles", stock: 40, disponible: true,
+  { nombre: "Pastel de vainilla",  precio: 45, categoria: "pasteles", stock: 40, disponible: true,
     imagen: "imagen3.jpg", descripcion: "Por unidad." },
-  { nombre: "Pastel de chocolate", precio: 45, categoria: "pasteles", stock: 25, disponible: true,
+  { nombre: "Pastel de chocolate", precio: 55, categoria: "pasteles", stock: 25, disponible: true,
     imagen: "pastel2.jpg", descripcion: "Pastel para las tardes." },
-  { nombre: "Pastel de avena",     precio: 40, categoria: "pasteles", stock: 8,  disponible: true,
+  { nombre: "Pastel de avena",     precio: 45, categoria: "pasteles", stock: 8,  disponible: true,
     imagen: "pastel1.jpg", descripcion: "Por unidad." },
   { nombre: "Masitas",             precio: 35, categoria: "salados",  stock: 0,  disponible: false,
     imagen: "masitas.jpg", descripcion: "Por porción." },
   { nombre: "Alfajores",           precio: 10, categoria: "salados",  stock: 30, disponible: true,
     imagen: "alfajores.jpg", descripcion: "Por unidad." },
-  { nombre: "Bizcochos",           precio: 45, categoria: "dulces",   stock: 2,  disponible: true,
+  { nombre: "Bizcochos",           precio: 45.50, categoria: "dulces",   stock: 2,  disponible: true,
     imagen: "bizcochos.jpg", descripcion: "Por unidad." },
   { nombre: "Galletas",            precio: 35, categoria: "dulces",   stock: 50, disponible: true,
     imagen: "galletas.jpg", descripcion: "Por porción." },

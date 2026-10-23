@@ -26,3 +26,16 @@ En la primera etapa, lo más difícil fue organizar y sincronizar las imágenes 
 En este laboratorio se integró la lógica en JavaScript organizada en módulos: **`app.js`** (estado inicial y aviso de stock), **`datos.js`** (catálogo de productos e inventario), **`funciones.js`** (cálculos de precios y descuentos), **`render.js`** (tarjetas dinámicas y manipulación del DOM) y **`eventos.js`** (buscador, filtros y validación del formulario). De este modo, los productos dejaron de estar fijos en el HTML y pasan a generarse e insertarse automáticamente en la página a partir de un arreglo de objetos según su disponibilidad.
 
 Asimismo, se incorporó interactividad con eventos en tiempo real: búsqueda por texto y filtros por categoría (pasteles, dulces y salados) que actualizan el catálogo al instante mediante una función unificada. Además, el formulario de pedidos procesa los datos con `FormData` sin recargar la página (`preventDefault`), valida que la fecha de entrega sea válida y muestra una confirmación inmediata al cliente.
+
+---
+
+## Laboratorio 3: jQuery comparado con Vanilla JavaScript
+
+Se incorporó el módulo **`jquery-comparado.js`** y la librería jQuery mediante CDN, permitiendo contrastar de forma directa las técnicas de:
+- **Esperar al DOM:** `DOMContentLoaded` vs `$(document).ready()` / `$(function)`.
+- **Selección y recorrido:** `document.querySelector` / `querySelectorAll` vs `$()` y `.each()`.
+- **Lectura y escritura:** `textContent` / `innerHTML` vs `.text()` / `.html()`.
+- **Manipulación de clases:** `classList` (`add`, `remove`, `toggle`, `contains`) vs `.addClass()`, `.removeClass()`, `.toggleClass()`, `.hasClass()`.
+- **Eventos y efectos:** `addEventListener` vs `.on()` y métodos de animación como `.fadeOut()` y `.fadeIn()`.
+- **Encadenamiento (Chaining):** Configuración de múltiples propiedades y clases en una sola instrucción.
+- **Manejo de datos:** Métodos utilitarios como `$.each()`, `$.grep()` y `$.map()` aplicados al catálogo de productos de `datos.js`.
